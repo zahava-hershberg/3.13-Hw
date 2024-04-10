@@ -1,0 +1,22 @@
+﻿@using _3._13_Hw.Data;
+@model AdViewModel;
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        @foreach (Ads ads in Model.Ads)
+        {
+            <div class="bg-light p-4 rounded shadow mb-3">
+                <h5>Listed on @ads.Date.ToLongDateString()</h5>
+                <h5>Phone Number: @ads.Number</h5>
+                <h3>Details:</h3>
+                <p>@ads.Description</p>
+                <form method="post" action="/home/delete">
+                    <input type="hidden" name="id" value="@ads.Id" />
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        }
+    </div>
+</div>
+
+﻿
